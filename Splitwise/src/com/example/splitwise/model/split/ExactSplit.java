@@ -8,4 +8,14 @@ public class ExactSplit extends Split {
         super(user);
         this.amount = amount;
     }
+
+    @Override
+    public double getAmount() {
+        return amount;
+    }
+
+    @Override
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
 }

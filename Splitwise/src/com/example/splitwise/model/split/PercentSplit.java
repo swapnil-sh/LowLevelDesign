@@ -3,9 +3,17 @@ package com.example.splitwise.model.split;
 import com.example.splitwise.model.User;
 
 public class PercentSplit extends Split{
-    double amount;
-    PercentSplit(User user, double amount) {
+    double percent;
+    PercentSplit(User user, double percent) {
         super(user);
-        this.amount = amount;
+        this.percent = percent;
+    }
+
+    public double getPercent() {
+        return percent;
+    }
+
+    public void setPercent(double percent) {
+        this.percent = percent;
     }
 }
