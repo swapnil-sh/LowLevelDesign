@@ -13,18 +13,18 @@ public class ExactExpense extends Expense {
 
     @Override
     public boolean validateExpense() {
-        double exactSplitAmount = 0;
+        double totalSplitAmount = 0;
+        double totalExpenseAmount = getExpenseAmount();
+
         for(Split split: getSplits()){
             if(!(split instanceof ExactSplit))
                 return false;
             else {
-                exactSplitAmount+=split.getAmount();
+                ExactSplit exactSplit = (ExactSplit) split;
+                totalSplitAmount += exactSplit.getAmount();
             }
         }
 
-        double totalExpenseAmount = getExpenseAmount();
-        if(totalExpenseAmount != exactSplitAmount)
-            return false;
-        return true;
+        return totalExpenseAmount == totalSplitAmount;
     }
 }
